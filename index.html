@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deepti Gupta · User Experience Designer</title>
+<meta name="description" content="Deepti Gupta, user experience designer. Enterprise user experience, data visualisation and service design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Montserrat:wght@300;400&family=Inter:wght@300;400;600&display=swap">
+<style>
+/* Layout: same light, peach-washed identity as the case studies. A sticky top nav, a full-width "hi, Deepti here." intro, then "/ section" headings with a hairline, tabbed experience, alternating project spotlights and an art grid. */
+:root{
+  color-scheme:light;
+  --bg:#ffffff; --ink:#241b33; --text:#352b46; --muted:#6a5d78; --line:#e7e0ee;
+  --amber:#3b1f68; --peach:#e6dcf1; --peach-soft:#f3eef8; --blush:#fbe3e3;
+  --display:"Outfit","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --label:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Helvetica Neue",Arial,system-ui,sans-serif;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+img{max-width:100%;display:block}
+b,strong{font-weight:600;color:var(--ink)}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;color:var(--ink);text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--label);font-weight:300;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+
+/* Nav */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:62px}
+.brand{font-family:var(--display);font-weight:500;font-size:1.1rem;text-decoration:none;color:var(--ink)}
+.left{display:flex;align-items:center;gap:36px;min-width:0}
+.links{display:flex;gap:24px;font-family:var(--label);font-size:.8rem;letter-spacing:.04em}
+.icons{display:flex;align-items:center;gap:4px}
+.ico{position:relative;appearance:none;text-decoration:none;border:0;background:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--ink);cursor:pointer}
+.ico:hover,.ico:focus-visible{background:var(--peach-soft);color:var(--amber)}
+.ico svg,.ico img{display:block}
+.ico img{width:24px;height:24px}
+.ico::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);left:50%;transform:translate(-50%,-4px);background:var(--ink);color:#fff;font-family:var(--label);font-size:.7rem;letter-spacing:.04em;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+.ico:last-child::after{left:auto;right:0;transform:translateY(-4px)}
+.ico:hover::after,.ico:focus-visible::after{opacity:1;transform:translate(-50%,0)}
+.ico:last-child:hover::after,.ico:last-child:focus-visible::after{transform:none}
+.links a{text-decoration:none;color:var(--ink)}
+.links a:hover{color:var(--amber)}
+.links a.ext{display:inline-flex;align-items:center;gap:4px}
+
+/* Intro */
+.intro{background:radial-gradient(110% 90% at 25% 20%,#d2bfe8 0%,rgba(214,198,236,.7) 32%,rgba(240,233,248,.55) 60%,#fff 85%)}
+.intro .wrap{padding-block:110px 120px}
+.hi{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.02;letter-spacing:-.015em}
+.hi em{font-style:normal;color:var(--amber);font-weight:400}
+.intro p.lead{margin-top:26px;font-family:var(--display);font-weight:300;font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.4;color:#463a58;max-width:30ch}
+.intro p.now{margin-top:18px;max-width:56ch;font-size:1.08rem;color:var(--text)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:99px;font-family:var(--label);font-size:.82rem;letter-spacing:.04em;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn.solid{background:var(--ink);color:#fff}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.btn.solid:hover{background:var(--amber);color:#fff}
+
+/* Section heads */
+section{padding-block:80px;scroll-margin-top:70px}
+.head{display:flex;align-items:center;gap:20px;margin-bottom:36px}
+.head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.4vw,2.4rem);white-space:nowrap}
+.head h2 span{color:var(--amber);font-weight:200;margin-right:2px}
+.head::after{content:"";flex:1;max-width:320px;height:1px;background:var(--line)}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:start}
+.about .txt{display:flex;flex-direction:column;gap:18px;min-width:0}
+.about .txt p{font-size:1.05rem}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 24px;margin:4px 0 0;padding:0;list-style:none;font-size:.95rem}
+.skills li{position:relative;padding-left:18px}
+.skills li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--amber);transform:rotate(45deg)}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tools span{padding:5px 13px;border-radius:99px;background:var(--peach-soft);font-size:.88rem;color:var(--ink)}
+.photo{aspect-ratio:4/5;border-radius:16px;background:linear-gradient(150deg,#e6dcf1,#f3eef8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--muted);text-align:center;padding:20px;box-shadow:0 30px 60px -36px rgba(45,20,80,.38)}
+.photo b{font-family:var(--label);font-weight:400;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.awards{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.awards p{font-size:.92rem;padding-left:16px;border-left:2px solid var(--peach)}
+
+/* Experience tabs */
+.exp{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;min-height:340px}
+.tabs{display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.tab{appearance:none;background:none;border:0;border-left:2px solid transparent;margin-left:-1px;text-align:left;padding:12px 18px;font-family:var(--label);font-size:.82rem;letter-spacing:.03em;color:var(--muted);cursor:pointer}
+.tab:hover{color:var(--ink);background:var(--peach-soft)}
+.tab[aria-selected="true"]{color:var(--amber);border-left-color:var(--amber);background:var(--peach-soft)}
+.panel{display:flex;flex-direction:column;gap:6px;min-width:0}
+.panel h3{font-family:var(--display);font-weight:400;font-size:1.45rem}
+.panel h3 span{color:var(--amber)}
+.panel .when{font-family:var(--label);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.panel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.panel li{position:relative;padding-left:22px}
+.panel li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--amber);transform:rotate(45deg)}
+
+/* Projects */
+.projects{display:flex;flex-direction:column;gap:72px}
+.proj{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center;text-decoration:none;color:inherit}
+.proj:nth-child(even) .shot{order:2}
+.proj .shot{border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -32px rgba(45,20,80,.35),0 0 0 1px rgba(0,0,0,.05);background:var(--peach-soft)}
+.proj .shot img{width:100%;height:auto;transition:transform .5s ease}
+.proj:hover .shot img{transform:scale(1.025)}
+.proj .txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.proj h3{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,2.8vw,2rem);line-height:1.15}
+.proj p{color:var(--text)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.74rem;padding:3px 10px;border-radius:99px;background:#f4f1f8;color:var(--muted);font-weight:400}
+.more{font-family:var(--label);font-size:.82rem;letter-spacing:.04em;color:var(--amber);display:inline-flex;gap:8px;align-items:center}
+.proj:hover .more{gap:12px}
+.more{transition:gap .2s}
+
+/* Art */
+.art-note{max-width:56ch;margin:-12px 0 32px;color:var(--muted)}
+.art{columns:3 260px;column-gap:20px}
+.art img{display:block;width:100%;height:auto;break-inside:avoid;margin-bottom:20px;border-radius:12px}
+.art div{break-inside:avoid;margin-bottom:20px;border-radius:12px;background:linear-gradient(135deg,#f8f6fb,#efe8f6);border:1px dashed #d6c7e2;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--label);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+
+
+/* Ending */
+.end{padding-block:120px 100px;text-align:center}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:36px}
+.end h2{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;letter-spacing:-.01em}
+.reach{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 56px;margin-top:64px}
+.reach a{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-family:var(--body);font-weight:600;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--ink)}
+.reach a:hover span{color:var(--amber)}
+.reach img,.reach svg{width:26px;height:26px;flex:none}
+/* Contact */
+.contact{background:var(--peach-soft);border-radius:24px;padding:56px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.contact h2{font-family:var(--display);font-weight:300;font-size:clamp(2rem,4vw,2.8rem)}
+.contact p{max-width:46ch}
+.addr{font-family:var(--display);font-size:1.15rem;color:var(--ink);user-select:all}
+footer{padding-block:28px;text-align:center;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .intro .wrap{padding-block:64px 72px}
+  .about,.proj{grid-template-columns:minmax(0,1fr);gap:28px}
+  .photo{max-width:320px}
+  .proj:nth-child(even) .shot{order:0}
+  .exp{grid-template-columns:minmax(0,1fr);gap:20px;min-height:0}
+  .tabs{flex-direction:row;border-left:0;border-bottom:1px solid var(--line);overflow-x:auto}
+  .tab{border-left:0;border-bottom:2px solid transparent;margin:0 0 -1px;white-space:nowrap}
+  .tab[aria-selected="true"]{border-bottom-color:var(--amber)}
+}
+@media (max-width:600px){
+  .links{display:none}
+  section{padding-block:56px}
+  .skills{grid-template-columns:minmax(0,1fr)}
+  .contact{padding:40px 20px}
+  .head::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.proj .shot img{transition:none}}
+
+/* Header carries the top strip of the page's colour wash, at rest and while scrolling */
+.top{background-color:#fff;background-repeat:no-repeat;background-position:0 0;border-bottom-color:transparent;backdrop-filter:none}
+.intro,.hero{margin-top:-62px;padding-top:62px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="left">
+      <a class="brand" href="#top" aria-label="Deepti Gupta, back to top">Deepti Gupta</a>
+      <nav class="links" aria-label="Sections"><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#art">Art</a><a href="resume/" class="ext">Resume <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></nav>
+    </div>
+    <div class="icons" aria-label="Contact and profiles">
+      <a class="ico" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=dgdeepti94@gmail.com" data-tip="Email" aria-label="Email dgdeepti94@gmail.com in Gmail"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3.2 7.6v9.9c0 .9.7 1.6 1.6 1.6h2.4v-7.8l4.8 3.6 4.8-3.6v7.8h2.4c.9 0 1.6-.7 1.6-1.6V7.6c0-1.5-1.7-2.3-2.9-1.4L12 10.4 6.1 6.2C4.9 5.3 3.2 6.1 3.2 7.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
+      <a class="ico" href="https://www.linkedin.com/in/deepti-gupta-a3736ba2" data-tip="LinkedIn" aria-label="LinkedIn"><img src="images/icon-linkedin.png" width="24" height="24" alt=""></a>
+      <a class="ico" href="https://www.behance.net/deeptigupta2" data-tip="Behance" aria-label="Behance"><img src="images/icon-behance.png" width="24" height="24" alt=""></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="intro">
+    <div class="wrap">
+      <div>
+        <h1 class="hi">hi, <em>Deepti</em> here.</h1>
+        <p class="lead">I’m always looking for ways to make complex things feel simple.</p>
+        <p class="now">Right now I'm a user experience designer at <b>IBM</b>, helping storage admins understand what's happening across their infrastructure, through clear visualisations and simple frameworks.</p>
+        <p class="now">Away from the screen, you'll find me illustrating, crocheting, out on a hike, or reading about other people's experiences.</p>
+        <div class="cta">
+          <a class="btn solid" href="#projects">See my work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="head"><h2><span>/</span> experience</h2></div>
+      <div class="exp">
+        <div class="tabs" role="tablist" aria-label="Companies">
+          <button class="tab" role="tab" id="tab-ibm" aria-controls="panel-ibm" aria-selected="true">IBM</button>
+          <button class="tab" role="tab" id="tab-michelin" aria-controls="panel-michelin" aria-selected="false" tabindex="-1">Michelin</button>
+          <button class="tab" role="tab" id="tab-tcs" aria-controls="panel-tcs" aria-selected="false" tabindex="-1">Tata Consultancy Services</button>
+        </div>
+        <div>
+          <div class="panel" role="tabpanel" id="panel-ibm" aria-labelledby="tab-ibm">
+            <h3>User Experience Designer <span>@ IBM</span></h3>
+            <p class="when">Mar 2023 – Present · India</p>
+            <ul>
+              <li>Lead user experience designer for IBM Storage products, shaping how teams monitor storage, troubleshoot issues and manage their storage environments.</li>
+              <li>Redesigned legacy experiences across IBM Storage Insights and the IBM FlashSystem element manager using the Carbon Design System, improving usability and consistency.</li>
+              <li>Designed storage monitoring dashboards, topology views, performance analysis and other key features that help teams monitor infrastructure and investigate issues faster.</li>
+              <li>Took the initiative to make our design process more efficient and to raise product quality, flagging implementation issues and driving fixes that improved the overall look and feel.</li>
+              <li>Work closely with product managers, developers, architects and researchers from discovery to delivery.</li>
+              <li>Use AI-assisted tools to speed up exploration, content and iteration.</li>
+              <li>Mentor new team members and contribute to feature estimation and quarterly release planning.</li>
+            </ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-michelin" aria-labelledby="tab-michelin" hidden>
+            <h3>User Experience Designer <span>@ Michelin</span></h3>
+            <p class="when">Jun 2021 – Feb 2023 · India</p>
+            <ul>
+              <li>Owned the end-to-end user experience design process, from user research to final design, working closely with business stakeholders and developers.</li>
+              <li>Designed employee portals and internal applications that make everyday work easier for Michelin employees.</li>
+              <li>Contributed reusable Figma components to the Michelin design system, keeping experiences consistent across products.</li>
+            </ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-tcs" aria-labelledby="tab-tcs" hidden>
+            <h3>User Experience Designer <span>@ Tata Consultancy Services</span></h3>
+            <p class="when">Oct 2016 – May 2021 · India</p>
+            <ul>
+              <li>Designed user flows and visual concepts for proof-of-concept projects that were later selected for implementation.</li>
+              <li>Designed both mobile and desktop applications, tailoring each experience to its platform.</li>
+              <li>Created wireframes, mock-ups and interactive prototypes for a range of product use cases.</li>
+              <li>Built storyboards to present user problems, solution approaches and the overall experience to clients.</li>
+              <li>Designed interfaces for monetisation solutions and e-wallet workflows.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><h2><span>/</span> projects</h2></div>
+      <div class="projects">
+        <a class="proj" href="performance-analysis/">
+          <div class="shot"><img src="images/p1.jpg" width="1400" height="795" alt="Redesigned Performance page in IBM Storage Insights with a navigation trail and stacked charts."></div>
+          <div class="txt">
+            <span class="label">IBM · Storage Insights</span>
+            <h3>Performance analysis</h3>
+            <p>One workspace where storage admins correlate performance across systems and components, with a navigation trail so they never lose context.</p>
+            <span class="more">Read case study <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+        <a class="proj" href="storage-topology/">
+          <div class="shot"><img src="images/p2.jpg" width="1400" height="843" loading="lazy" alt="Storage topology view with hosts, switches, ports and volumes connected on a dark canvas."></div>
+          <div class="txt">
+            <span class="label">IBM · Storage Insights</span>
+            <h3>Storage system topology</h3>
+            <p>A visual map of how hosts, switches and volumes connect, replacing fragmented tables to make root cause analysis faster.</p>
+            <span class="more">Read case study <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+        <a class="proj" href="employee-service-portal/">
+          <div class="shot"><img src="images/p3.jpg" width="1400" height="793" loading="lazy" alt="Redesigned employee service portal home page with search and four entry cards."></div>
+          <div class="txt">
+            <span class="label">Michelin · Service design</span>
+            <h3>Employee Service Portal</h3>
+            <p>Two tools merged into one portal where employees find information, raise incidents and request services.</p>
+            <span class="more">Read case study <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="art" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><h2><span>/</span> art</h2></div>
+      <p class="art-note">Outside of work, I illustrate and make 3D renders. A few of my favourites.</p>
+      <div class="art">
+        <img src="images/art-1.jpg" width="1200" height="937" loading="lazy" alt="3D render of two clay kulhad cups of chai on a dark wooden table">
+        <img src="images/art-2.jpg" width="1200" height="715" loading="lazy" alt="3D render of a black die and a white die tumbling over a red surface">
+        <img src="images/art-3.jpg" width="1200" height="670" loading="lazy" alt="3D render of a pink-glazed doughnut with sprinkles on a pink background">
+        <img src="images/art-4.jpg" width="1200" height="769" loading="lazy" alt="Illustration of a glowing purple planet with a ring, filled with pastel waves, in deep space">
+        <img src="images/art-5.jpg" width="1200" height="914" loading="lazy" alt="Illustration of a smiling coffee cup wearing round glasses on a mint background">
+        <img src="images/art-6.jpg" width="1200" height="903" loading="lazy" alt="Illustration of a blue aeroplane flying with swirling trails on a light blue background">
+        <img src="images/art-7.jpg" width="1200" height="905" loading="lazy" alt="Illustration of a vinyl record surrounded by music notes and flowers on pale pink">
+        <img src="images/art-8.jpg" width="1200" height="1198" loading="lazy" alt="Illustration of a person in a red cap riding a red bicycle inside a navy circle">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="end">
+    <div class="wrap">
+      <h2>Learn more about my experience</h2>
+      <a class="btn solid" href="resume/">Resume <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <div class="reach">
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=dgdeepti94@gmail.com"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M2.5 7.2v11.3c0 .8.6 1.4 1.4 1.4h3.2v-8.6z" fill="#4285F4"/><path d="M16.9 11.3v8.6h3.2c.8 0 1.4-.6 1.4-1.4V7.2z" fill="#34A853"/><path d="M16.9 5.6v5.7l4.6-4.1v-1c0-1.7-1.9-2.6-3.2-1.6z" fill="#FBBC04"/><path d="M7.1 11.3V5.6L12 9.3l4.9-3.7v5.7L12 15z" fill="#EA4335"/><path d="M2.5 6.2v1l4.6 4.1V5.6L5.7 4.6C4.4 3.6 2.5 4.5 2.5 6.2z" fill="#C5221F"/></svg><span>dgdeepti94@gmail.com</span></a>
+        <a href="https://www.linkedin.com/in/deepti-gupta-a3736ba2"><img src="images/icon-linkedin.png" width="26" height="26" alt=""><span>LinkedIn</span></a>
+        <a href="https://www.behance.net/deeptigupta2"><img src="images/icon-behance.png" width="26" height="26" alt=""><span>Behance</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Deepti Gupta</div></footer>
+
+<script>
+(function(){
+  // Experience tabs
+  const tabs=[...document.querySelectorAll('.tab')];
+  const select=t=>{tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});};
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>select(t));t.addEventListener('keydown',e=>{const d=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();const n=tabs[(i+d+tabs.length)%tabs.length];select(n);n.focus();}});});
+
+
+})();
+</script>
+<script>(function(){var t=document.querySelector(".top"),h=document.querySelector(".intro,.hero");if(!t||!h)return;var f=function(){t.style.backgroundImage=getComputedStyle(h).backgroundImage;t.style.backgroundSize=h.offsetWidth+"px "+h.offsetHeight+"px"};f();window.addEventListener("resize",f);window.addEventListener("load",f);})();</script>
+<script>
+(function(){
+  var T='access-7f3a9c', K='dg-case-unlocked', IDS=['938eBGq6vwTJ6NS7ZzLbpa','FCU8cWA3xcuAd3DaZ7JjQf','1YgPYLfgTkDgn6CHfx7pYL'], on=false;
+  try{ on = sessionStorage.getItem(K)==='1'; }catch(x){}
+  if(location.hash.indexOf(T)>=0){
+    on=true; try{ sessionStorage.setItem(K,'1'); }catch(x){}
+    var sec=location.hash.slice(1).replace('-'+T,'').replace(T,'');
+    var go=function(){ var el=sec&&document.getElementById(sec); if(el) el.scrollIntoView(); else window.scrollTo(0,0); };
+    setTimeout(go,60); window.addEventListener('load',go);
+  }
+  if(!on) return;
+  var L=document.querySelectorAll('a[href^="https://claude.ai/artifact/"]');
+  for(var n=0;n<L.length;n++){ var a=L[n], u=a.getAttribute('href'), m=u.match(/artifact\/(\w+)(?:#([\w-]+))?$/);
+    if(!m||IDS.indexOf(m[1])<0||u.indexOf(T)>=0) continue;
+    a.setAttribute('href','https://claude.ai/artifact/'+m[1]+'#'+(m[2]?m[2]+'-':'')+T); }
+})();
+</script>
+</body>
+</html>
