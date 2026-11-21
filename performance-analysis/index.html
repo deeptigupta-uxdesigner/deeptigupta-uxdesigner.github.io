@@ -242,7 +242,7 @@ section{padding-block:56px}
     </div>
     <div class="icons" aria-label="Contact and profiles">
       <a class="ico" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=dgdeepti94@gmail.com" target="_blank" rel="noopener" data-tip="Email" aria-label="Email dgdeepti94@gmail.com in Gmail"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3.2 7.6v9.9c0 .9.7 1.6 1.6 1.6h2.4v-7.8l4.8 3.6 4.8-3.6v7.8h2.4c.9 0 1.6-.7 1.6-1.6V7.6c0-1.5-1.7-2.3-2.9-1.4L12 10.4 6.1 6.2C4.9 5.3 3.2 6.1 3.2 7.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
-      <a class="ico" href="https://www.linkedin.com/in/deepti-gupta-a3736ba2" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn"><img src="images/icon-linkedin.png" width="24" height="24" alt=""></a>
+      <a class="ico" href="https://www.linkedin.com/in/deepti-gupta-a3736ba2/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn"><img src="images/icon-linkedin.png" width="24" height="24" alt=""></a>
       <a class="ico" href="https://www.behance.net/deeptigupta2" target="_blank" rel="noopener" data-tip="Behance" aria-label="Behance"><img src="images/icon-behance.png" width="24" height="24" alt=""></a>
     </div>
   </div>
@@ -269,7 +269,7 @@ section{padding-block:56px}
     <div class="wrap">
       <div class="stack" style="max-width:760px">
         <h2 class="label">Background</h2>
-        <p>IBM Storage Insights helps storage admins monitor the health and performance of their storage. Its <b>Performance analysis</b> feature is where admins and support engineers go when something is slow: they compare IO rate, data rate and response time across storage systems, then drill into volumes, pools and host connections to find the cause.</p>
+        <p>IBM Storage Insights helps storage admins monitor the health and performance of their storage. Its <b>Performance analysis</b> feature is where admins and support engineers go to investigate any issue in their storage infrastructure. For example, they can compare IO rate and response time across storage systems, then drill into volumes, pools and host connections, comparing their metrics to find the root cause.</p>
       </div>
     </div>
   </section>
@@ -349,7 +349,7 @@ section{padding-block:56px}
             <li><b>Overloaded visuals:</b> dense charts, scattered controls and unclear legends raised cognitive load.</li>
             <li><b>Inconsistent interactions:</b> metric and time selection behaved differently in charts and tables.</li>
             <li><b>Fragmented navigation:</b> related analysis opened in separate, unsynchronised windows.</li>
-            <li><b>Actions far from data:</b> column selection, reporting and export sat away from the content they acted on.</li>
+            <li><b>Scattered actions:</b> actions on charts and the data table, such as column selection, export and metric selection, were spread across the screen.</li>
           </ul>
         </div>
         <div class="shots">
@@ -464,19 +464,6 @@ section{padding-block:56px}
       </div>
     </section>
 
-    <section style="padding-top:0">
-      <div class="wrap stack" style="gap:28px">
-        <div class="narrow stack">
-          <h3 class="label">Risks &amp; constraints</h3>
-          <p>Reviewing the flow with stakeholders surfaced three constraints the design had to respect.</p>
-        </div>
-        <div class="cols3">
-          <div><h3>System unavailability</h3><p>Some storage systems can be temporarily unreachable because of data collection issues.</p></div>
-          <div><h3>Data latency</h3><p>Performance data comes through a mini-probe with about a <b>5-minute delay</b>, so it is never real time.</p></div>
-          <div><h3>Missing components</h3><p>Hosts or switches may not be onboarded or monitored, which can limit end-to-end correlation.</p></div>
-        </div>
-      </div>
-    </section>
   </div>
 
   <!-- MAKE -->
@@ -553,7 +540,7 @@ section{padding-block:56px}
   <!-- DELIVER -->
   <div class="phase" id="deliver">
     <h2 class="phase-title">Deliver</h2>
-    <p class="phase-intro">Final designs, each answering a problem from the audit, documented for the development team.</p>
+    <p class="phase-intro">Final designs, documented for the development team.</p>
 
     <section>
       <div class="wrap stack" style="gap:72px">
@@ -570,7 +557,7 @@ section{padding-block:56px}
           <figure class="shot"><img src="images/final-3.png" width="1584" height="900" loading="lazy" alt="Performance analysis paths panel showing two exploration paths, storage to volumes to hosts and storage to volumes to pools, with bookmarks and a Select button."></figure>
         </div>
         <div class="row flip feature">
-          <div class="stack"><h3 class="label">AI layer</h3><h3>AI-assisted analysis</h3><p>An AI layer <b>highlights anomalies</b> and guides users to areas that need attention. Users can describe a problem in plain language, such as a slow application, and the assistant points to the likely component and opens a <b>curated correlation path</b>.</p></div>
+          <div class="stack"><h3 class="label">AI layer</h3><h3>AI-assisted analysis</h3><p>An AI layer <b>highlights anomalies</b> and guides users to areas that need attention. Users can describe a problem in plain language, and the assistant points to the likely component and opens a <b>curated correlation path</b>.</p></div>
           <figure class="shot"><img src="images/final-4.png" width="1584" height="900" loading="lazy" alt="FlashSystem.ai assistant panel over the Performance page, answering a question about a slow Salesforce app with a View analysis button."></figure>
         </div>
         <div class="row feature">
@@ -578,7 +565,7 @@ section{padding-block:56px}
           <figure class="shot"><img src="images/final-5.png" width="1584" height="900" loading="lazy" alt="Saved analysis paths side panel listing one saved analysis with its date, device type and path, over the Performance page."></figure>
         </div>
         <div class="row flip feature">
-          <div class="stack"><h3 class="label">Synchronised tooltip</h3><h3>Compare values at one moment</h3><p>One hover shows values at the <b>same timestamp across every stacked chart</b>, so users no longer line up values by hand.</p></div>
+          <div class="stack"><h3 class="label">Synchronised tooltip</h3><h3>Compare values at one moment</h3><p>One hover shows values at the <b>same timestamp across every stacked chart</b>.</p></div>
           <figure class="shot"><img src="images/final-6.png" width="1600" height="910" loading="lazy" alt="Synchronised tooltips: hovering one chart shows values for six volumes and six storage systems at the same timestamp in both stacked charts."></figure>
         </div>
         <div class="row feature">
@@ -592,7 +579,7 @@ section{padding-block:56px}
       <div class="wrap narrow">
         <div class="stack">
           <h3 class="label">Dev handoff</h3>
-          <p>I documented the final designs for the development team on <b>Carbon components</b>: screen specs and states, interaction rules for synced tooltips and the trail, and edge cases for unreachable systems, delayed data and unmonitored components.</p>
+          <p>I documented the final designs for the development team on <b>Carbon components</b>: screen specs and states, and interaction rules for synced tooltips and the trail.</p>
         </div>
       </div>
     </section>
